@@ -1,0 +1,4 @@
+hm:
+  db:
+    host: { your container name or ip address}
+    pw: {your password}

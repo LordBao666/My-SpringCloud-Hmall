@@ -1,0 +1,8 @@
+target/
+*.log
+*.iml
+.idea/
+
+# 禁止将数据库涉及密码的配置文件上传
+application-dev.*
+application-local.*

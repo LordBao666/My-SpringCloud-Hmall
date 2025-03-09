@@ -1,4 +1,5 @@
 target/
+logs
 *.log
 *.iml
 .idea/
@@ -6,3 +7,6 @@ target/
 # 禁止将数据库涉及密码的配置文件上传
 application-dev.*
 application-local.*
+
+# 禁止上传nacos的相关信息
+application-nacos.*

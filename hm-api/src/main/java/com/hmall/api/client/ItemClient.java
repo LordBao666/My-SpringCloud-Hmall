@@ -2,9 +2,9 @@ package com.hmall.api.client;
 
 
 import com.hmall.api.dto.ItemDTO;
+import com.hmall.api.dto.OrderDetailDTO;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,8 +14,12 @@ import java.util.List;
  * @Version 1.0
  */
 @FeignClient("item-service")
+@RequestMapping("items")
 public interface ItemClient {
 
-    @GetMapping("items")
+    @GetMapping
     public List<ItemDTO> queryItemByIds(@RequestParam("ids") List<Long> ids);
+
+    @PutMapping("/stock/deduct")
+    public void deductStock(@RequestBody List<OrderDetailDTO> items);
 }

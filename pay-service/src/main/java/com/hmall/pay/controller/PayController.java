@@ -1,8 +1,9 @@
 package com.hmall.pay.controller;
 
+import com.hmall.api.dto.PayApplyDTO;
+import com.hmall.api.dto.PayOrderFormDTO;
 import com.hmall.common.exception.BizIllegalException;
-import com.hmall.pay.domain.dto.PayApplyDTO;
-import com.hmall.pay.domain.dto.PayOrderFormDTO;
+import com.hmall.pay.domain.enums.PayType;
 import com.hmall.pay.service.IPayOrderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;

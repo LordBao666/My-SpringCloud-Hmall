@@ -3,7 +3,6 @@ package com.hmall.api.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -13,8 +12,7 @@ import java.util.List;
  * @Date 2025/3/10 11:08
  * @Version 1.0
  */
-@FeignClient("cart-service")
-@RequestMapping("carts")
+@FeignClient(name = "cart-service",path = "/carts")
 public interface CartClient {
 
     @DeleteMapping

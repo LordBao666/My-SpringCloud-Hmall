@@ -5,6 +5,7 @@ import com.hmall.api.dto.LoginFormDTO;
 import com.hmall.common.exception.BadRequestException;
 import com.hmall.common.exception.BizIllegalException;
 import com.hmall.common.exception.ForbiddenException;
+import com.hmall.common.utils.UserContext;
 import com.hmall.pay.config.JwtProperties;
 import com.hmall.pay.domain.po.User;
 import com.hmall.pay.domain.vo.UserLoginVO;
@@ -67,9 +68,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     public void deductMoney(String pw, Integer totalFee) {
         log.info("开始扣款");
         // 1.校验密码
-        //TODO:暂时将用户固定为1L
-//        User user = getById(UserContext.getUser());
-        User user = getById(1L);
+
+        User user = getById(UserContext.getUser());
+
         if(user == null || !passwordEncoder.matches(pw, user.getPassword())){
             // 密码错误
             throw new BizIllegalException("用户密码错误");
@@ -77,9 +78,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
         // 2.尝试扣款
         try {
-            //TODO:暂时将用户固定为1L
-//            baseMapper.updateMoney(UserContext.getUser(), totalFee);
-            baseMapper.updateMoney(1L, totalFee);
+            baseMapper.updateMoney(UserContext.getUser(), totalFee);
+
         } catch (Exception e) {
             throw new RuntimeException("扣款失败，可能是余额不足！", e);
         }

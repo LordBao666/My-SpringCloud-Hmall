@@ -3,7 +3,6 @@ package com.hmall.api.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -11,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Date 2025/3/10 15:17
  * @Version 1.0
  */
-@FeignClient("user-service")
-@RequestMapping("/users")
+@FeignClient(name = "user-service",path = "/users")
 public interface UserClient {
 
     @PutMapping("/money/deduct")

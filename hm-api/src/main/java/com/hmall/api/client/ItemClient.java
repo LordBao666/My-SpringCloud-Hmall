@@ -13,8 +13,8 @@ import java.util.List;
  * @Date 2025/3/9 8:23
  * @Version 1.0
  */
-@FeignClient("item-service")
-@RequestMapping("items")
+
+@FeignClient(name = "item-service",path = "/items")
 public interface ItemClient {
 
     @GetMapping

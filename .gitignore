@@ -10,3 +10,6 @@ application-local.*
 
 # 禁止上传nacos的相关信息
 application-nacos.*
+
+# 禁止上传bootstrap的相关信息
+bootstrap.*

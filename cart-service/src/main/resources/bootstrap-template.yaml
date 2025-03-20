@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: { ServiceName,e.g cart-service } #服务名称
+  profiles:
+    active: dev
+    include: nacos
+  cloud:
+    nacos:
+      server-addr: { server-addr,e.g  } #nacos地址
+      config:
+        file-extension: yaml
+        shared-configs:
+          - dataId : shared-jdbc.yaml
+          - dataId : shared-log.yaml
+          - dataId : shared-swagger.yaml

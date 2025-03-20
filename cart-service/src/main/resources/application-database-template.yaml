@@ -1,4 +1,9 @@
 hm:
   db:
     host: { your container name or ip address}
+    port: {by default 3306}
+    database: hm-cart
+    user: {userName,root by default}
     pw: {your password}
+
+

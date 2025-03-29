@@ -36,6 +36,8 @@ public class ItemController {
     @ApiOperation("根据id批量查询商品")
     @GetMapping
     public List<ItemDTO> queryItemByIds(@RequestParam("ids") List<Long> ids){
+        //模拟某个服务出现故障,导致处理时间缓慢. 用于线程隔离测试.
+//        ThreadUtil.sleep(500);
         return itemService.queryItemByIds(ids);
     }
 
